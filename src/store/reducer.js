@@ -20,7 +20,29 @@ const reducer = (state = INITIAL_STATE, action) =>{
         }
         case 'VALID_MOVE':
         const newBoard=state.board
-        newBoard[action.payload[1]][action.payload[0]] = action.payload[2]      
+        const row = action.payload[0]
+        const col = action.payload[1]
+        console.log(row)
+        console.log(col)
+
+        if (newBoard[5][col] === 0){
+            newBoard[5][col] = action.payload[2]
+        } else if (newBoard[4][col] === 0){
+            newBoard[4][col] = action.payload[2]
+        } else if (newBoard[3][col] === 0){
+            newBoard[3][col] = action.payload[2]
+        } else if (newBoard[2][col] === 0){
+            newBoard[2][col] = action.payload[2]
+        } else if (newBoard[1][col] === 0){
+            newBoard[1][col] = action.payload[2]
+        } else if (newBoard[0][col] === 0){
+            newBoard[0][col] = action.payload[2]
+        }
+            
+        
+
+        
+        
         return {
             ...state,
             board: newBoard
