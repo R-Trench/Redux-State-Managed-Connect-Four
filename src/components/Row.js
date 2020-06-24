@@ -12,6 +12,7 @@ const Row=(props)=>{
             <Cell cellNum='3' rowNum={props.rowNum} value={props.board[3]}/>
             <Cell cellNum='4' rowNum={props.rowNum} value={props.board[4]}/>
             <Cell cellNum='5' rowNum={props.rowNum} value={props.board[5]}/>
+            <Cell cellNum='6' rowNum={props.rowNum} value={props.board[6]}/>
         </tr>
         </React.Fragment>
     )

@@ -6,9 +6,9 @@ class App extends React.Component{
 
     printPlayerTurn=()=>{
         if (this.props.playerOneTurn){
-            return <p>It is Player One's Turn</p>
+            return <p>Red's Turn</p>
         } else {
-            return <p>It is Player Two's Turn</p>
+            return <p>Blue's Turn</p>
         }
      
     }

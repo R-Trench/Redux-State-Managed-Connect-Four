@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
     playerOneTurn: true,
+    isWinner: false,
     board: [
             [0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0],
@@ -12,12 +13,16 @@ const INITIAL_STATE = {
 
 const reducer = (state = INITIAL_STATE, action) =>{
     switch (action.type){
+
     case 'CHANGE_PLAYER_TURN':
         return {
             ...state,
             playerOneTurn: !state.playerOneTurn,
             
         }
+
+
+
         case 'VALID_MOVE':
         const newBoard=state.board
         const row = action.payload[0]
@@ -38,17 +43,36 @@ const reducer = (state = INITIAL_STATE, action) =>{
         } else if (newBoard[0][col] === 0){
             newBoard[0][col] = action.payload[2]
         }
-            
-        
-
-        
-        
         return {
             ...state,
             board: newBoard
         } 
+
+        case 'CHECK_WINNER':
+        return {
+            state
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         default: return state
     } 
+    
     
 }
 
