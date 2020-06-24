@@ -25,10 +25,7 @@ const reducer = (state = INITIAL_STATE, action) =>{
 
         case 'VALID_MOVE':
         const newBoard=state.board
-        const row = action.payload[0]
         const col = action.payload[1]
-        console.log(row)
-        console.log(col)
 
         if (newBoard[5][col] === 0){
             newBoard[5][col] = action.payload[2]
@@ -49,6 +46,24 @@ const reducer = (state = INITIAL_STATE, action) =>{
         } 
 
         case 'CHECK_WINNER':
+        //     const newBoard2=state.board
+        //     let rowIndex = 0
+        //     let colIndex = 0
+            
+
+        // //horizontal check
+        // while (rowIndex < 6){
+        //     while (colIndex < 3){
+
+        //         if (newBoard2[rowIndex][colIndex] === newBoard2[rowIndex][colIndex+1]){
+        //             console.log('yes')
+        //         }
+
+        //         colIndex=colIndex+1
+        //     }
+        //     rowIndex =rowIndex+1
+        // }
+
         return {
             state
         }
