@@ -16,7 +16,7 @@ class App extends React.Component{
     render(){
         return <div>
             {this.printPlayerTurn()}
-            <table onClick={this.props.onPlayerTurnChange}>
+            <table>
             <tbody>
                 <Row rowNum='0' board={this.props.myBoard[0]}/>
                 <Row rowNum='1' board={this.props.myBoard[1]}/>
