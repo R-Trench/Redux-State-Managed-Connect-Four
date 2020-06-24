@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
-    player1turn: true,
+    playerOneTurn: true,
     board: [
+            [0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0],
@@ -11,11 +12,11 @@ const INITIAL_STATE = {
 
 const reducer = (state = INITIAL_STATE, action) =>{
     if (action.type === 'CHANGE_PLAYER_TURN'){
-        console.log('CHANGE_PLAYER_TURN was invoked')
+        // console.log('CHANGE_PLAYER_TURN was invoked')
+        // console.log(state.playerOneTurn)
         return {
             ...state,
-            player1turn: false
-            
+            playerOneTurn: !state.playerOneTurn
         }
     } else {
         return state

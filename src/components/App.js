@@ -1,34 +1,29 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import Row from './Row'
 
 class App extends React.Component{
 
-    doThing=()=>{
-        console.log(this.props.myBoard)
-    }
-
-    printRow=()=>{
-        console.log('function')
-        this.props.myBoard[0].map(el=>{
-            return <td>{el}</td>
-        })
+    printPlayerTurn=()=>{
+        if (this.props.playerOneTurn){
+            return <p>It is Player One's Turn</p>
+        } else {
+            return <p>It is Player Two's Turn</p>
+        }
+     
     }
 
     render(){
         return <div>
-            <table onClick={this.props.onBoardClick}>
+            {this.printPlayerTurn()}
+            <table onClick={this.props.onPlayerTurnChange}>
             <tbody>
-                {
-                    this.props.myBoard.map(el=>{
-                    return <tr>{
-                    this.props.myBoard[0].map(el=>{
-                    return <td>{el}</td>
-                    })
-                }
-                </tr>
-                    })
-                }
-               
+                <Row rowNum='0' board={this.props.myBoard[0]}/>
+                <Row rowNum='1' board={this.props.myBoard[1]}/>
+                <Row rowNum='2' board={this.props.myBoard[2]}/>
+                <Row rowNum='3' board={this.props.myBoard[3]}/>
+                <Row rowNum='4' board={this.props.myBoard[4]}/>
+                <Row rowNum='5' board={this.props.myBoard[5]}/>
             </tbody>    
             </table>
         </div>
@@ -39,13 +34,13 @@ class App extends React.Component{
 const mapStateToProps = state => {
     return {
         myBoard: state.board,
-        playerTurn: state.playerTurn,
+        playerOneTurn: state.playerOneTurn,
     }
 }
 
 const mapDispatchToProps = dispatch =>{
     return {
-        onBoardClick: ()=> dispatch({type:'CHANGE_PLAYER_TURN'})
+        onPlayerTurnChange: ()=> dispatch({type:'CHANGE_PLAYER_TURN'})
     }
 }
 
