@@ -19,16 +19,11 @@ const reducer = (state = INITIAL_STATE, action) =>{
             
         }
         case 'VALID_MOVE':
+        const newBoard=state.board
+        newBoard[action.payload[1]][action.payload[0]] = action.payload[2]      
         return {
             ...state,
-            board: [
-                [0,0,0,0,0,0,0],
-                [0,0,1,0,0,0,0],
-                [0,0,0,0,0,action.payload,0],
-                [0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0],
-                [0,0,0,0,0,0,0],
-            ]
+            board: newBoard
         } 
         default: return state
     } 

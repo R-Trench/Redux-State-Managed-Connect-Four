@@ -28,13 +28,13 @@ const Cell=(props)=>{
                 event.target.style.background = 'red'
                 props.onPlayerTurnChange()
                 setIsTaken(true)
-                props.validMoveWasMade(1)
+                props.validMoveWasMade([props.cellNum,props.rowNum,1])
     
             } else if (!props.playerOneTurn){
                 event.target.style.background = 'blue'
                 props.onPlayerTurnChange()   
                 setIsTaken(true)
-                props.validMoveWasMade(2)
+                props.validMoveWasMade([props.cellNum,props.rowNum,2])
             }
         }
 
