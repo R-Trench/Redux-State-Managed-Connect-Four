@@ -15,7 +15,8 @@ const reducer = (state = INITIAL_STATE, action) =>{
     case 'CHANGE_PLAYER_TURN':
         return {
             ...state,
-            playerOneTurn: !state.playerOneTurn
+            playerOneTurn: !state.playerOneTurn,
+            
         }
         case 'VALID_MOVE':
         return {
@@ -23,7 +24,7 @@ const reducer = (state = INITIAL_STATE, action) =>{
             board: [
                 [0,0,0,0,0,0,0],
                 [0,0,1,0,0,0,0],
-                [0,0,0,0,0,0,0],
+                [0,0,0,0,0,action.payload,0],
                 [0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0],
                 [0,0,0,0,0,0,0],

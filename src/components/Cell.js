@@ -28,12 +28,13 @@ const Cell=(props)=>{
                 event.target.style.background = 'red'
                 props.onPlayerTurnChange()
                 setIsTaken(true)
-                props.validMoveWasMade()
+                props.validMoveWasMade(1)
     
             } else if (!props.playerOneTurn){
                 event.target.style.background = 'blue'
                 props.onPlayerTurnChange()   
                 setIsTaken(true)
+                props.validMoveWasMade(2)
             }
         }
 
@@ -58,7 +59,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch =>{
     return {
         onPlayerTurnChange: ()=> dispatch({type:'CHANGE_PLAYER_TURN'}),
-        validMoveWasMade: ()=> dispatch({type:'VALID_MOVE'})
+        validMoveWasMade: (num)=> dispatch({type:'VALID_MOVE', payload: num})
     }
 }
 
